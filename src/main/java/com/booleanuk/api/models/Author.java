@@ -18,7 +18,7 @@ public class Author {
     private int id;
 
     @Column
-    private String firstName;
+    private String firstName;       // TODO: Why not name these first_name to match SQL column name convention?
 
     @Column
     private String lastName;
@@ -34,5 +34,9 @@ public class Author {
         this.lastName = lastName;
         this.email = email;
         this.alive = alive;
+    }
+
+    public Author(int id) {
+        this.id = id;
     }
 }
