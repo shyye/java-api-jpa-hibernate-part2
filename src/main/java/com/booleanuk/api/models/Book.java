@@ -24,7 +24,7 @@ public class Book {
     @Column
     private String genre;
 
-    @ManyToOne  // TODO: Many to One or One to One ?
+    @ManyToOne
     @JoinColumn(nullable = false)
     @JsonIgnoreProperties({"books"})
     private Author author;
