@@ -1,10 +1,13 @@
 package com.booleanuk.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +25,10 @@ public class Publisher {
 
     @Column
     private String location;
+
+    @OneToMany(mappedBy = "publisher")
+    @JsonIgnoreProperties({"publisher", "author"})
+    private List<Book> books;
 
     public Publisher(String name, String location) {
         this.name = name;
