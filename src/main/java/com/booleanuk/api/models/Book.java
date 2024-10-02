@@ -1,5 +1,6 @@
 package com.booleanuk.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,10 +26,12 @@ public class Book {
 
     @ManyToOne  // TODO: Many to One or One to One ?
     @JoinColumn(nullable = false)
+    @JsonIgnoreProperties({"books"})
     private Author author;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonIgnoreProperties({"books"})
     private Publisher publisher;
 
     public Book(String title, String genre, Author author, Publisher publisher) {
